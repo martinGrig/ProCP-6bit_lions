@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace scripts_for_ProCP
+namespace WeatherScript
 { /// <summary>
   /// Script for customers (character, normal distribution, movement)
   /// The customers’ purpose of visiting the mini-mall will be different. They will be randomized by using the Normal Distribution
@@ -31,15 +31,18 @@ namespace scripts_for_ProCP
         private int freeTime;
         private double budget;
         private string purpose;
+        private Category category;
 
         public Customer()
         {
             //run all methods
+            this.id++;
             this.age = SetAge();
             this.gender = SetGender();
             this.freeTime = SetFreeTime();
             this.budget = SetBudget();
             this.purpose = SetPurpose();
+            this.category = SetCategory();
         }
 
         private int SetAge()
@@ -163,7 +166,60 @@ namespace scripts_for_ProCP
                 return "Bathroom";
             }
         }
+        private Category SetCategory()
+        {
+            Random random = new Random();
+            double result = random.NextDouble();
 
+            if (result <= 0.5)
+            {
+                return Category.NOPURPOSE;
+            }
+            else if (result > 0.5 && result <= 0.6)
+            {
+                return Category.CLOTHES;
+            }
+            else if (result > 0.6 && result <= 0.7)
+            {
+                return Category.CAFE;
+            }
+            else if (result > 0.7 && result <= 0.8)
+            {
+                return Category.ENTERTAINMENT;
+            }
+            else if (result > 0.8 && result <= 0.9)
+            {
+                return Category.FOOD;
+            }
+            else
+            {
+                return Category.ELECTRONICS;
+            }
+        }
+        public int GetAge()
+        {
+            return age;
+        }
+        public string GetGender()
+        {
+            return gender;
+        }
+        public int GetFreeTime()
+        {
+            return freetime;
+        }
+        public double GetBudget()
+        {
+            return budget;
+        }
+        public string GetPurpose()
+        {
+            return purpose;
+        }
+        public Category GetCategory()
+        {
+            return category;
+        }
         //choose shop: based on purpose, budget and free time
 
         //buy product: based on random price and budget

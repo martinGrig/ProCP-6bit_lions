@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexa\\Desktop\\procp-six-bit-lions-master\\procp-six-bit-lions-master\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
+      "projectUniqueName": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
       "projectName": "WeatherScript",
-      "projectPath": "C:\\Users\\alexa\\Desktop\\procp-six-bit-lions-master\\procp-six-bit-lions-master\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
+      "projectPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
       "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexa\\Desktop\\procp-six-bit-lions-master\\procp-six-bit-lions-master\\WeatherScript\\WeatherScript\\obj\\",
+      "outputPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"

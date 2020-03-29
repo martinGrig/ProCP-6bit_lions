@@ -27,14 +27,21 @@ namespace WeatherScript
         FOOD,
         CAFE,
         FITNESS,
-        RESTROOM.
+        RESTROOM,
         ELECTRONICS,
         JEWLERY,
         COSMETICS,
-        ADULT TOYS,
-        CHILDREN TOYS,
-        HOUSEHOLD GOODS,
+        ADULTTOYS,
+        CHILDRENTOYS,
+        HOUSEHOLDGOODS,
         BOOKSTORE,
         ENTERTAINMENT,
+        NOPURPOSE,
+    }
+    public enum Size
+    {
+        SMALL,
+        MEDIUM,
+        LARGE,
     }
 }
