@@ -26,9 +26,27 @@ namespace WeatherScript
         }
         public Result runSimulation()
         {
-
+            switch (_weather)
+            {
+                case Weather.SUNNY:
+                    
+                    break;
+                case Weather.CLOUDY:
+                    break;
+                case Weather.RAINY:
+                    break;
+                case Weather.SNOWY:
+                    break;
+                default:
+                    break;
+            }
 
             return result;
+        }
+        public int GetPerShopIncome(string ShopName)
+        {
+            int income = 0;
+            return income;
         }
     }
 
