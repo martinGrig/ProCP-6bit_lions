@@ -15,11 +15,11 @@ namespace WeatherScript
         private bool _seasanolSale;
         private DaysOfTheWeek _dayOfTheWeek;
 
-        public Simulation(DateTime date, TimeSpan duration, Weather weather, bool holiday, bool seasonalSale, DaysOfTheWeek dayOfTheWeek)
+        public Simulation(DateTime date, TimeSpan duration, bool holiday, bool seasonalSale, DaysOfTheWeek dayOfTheWeek)
         {
             _date = date;
             _duration = duration;
-            _weather = weather;
+            _weather = SetWeather();
             _holiday = holiday;
             _seasanolSale = seasonalSale;
             _dayOfTheWeek = dayOfTheWeek;
@@ -47,6 +47,22 @@ namespace WeatherScript
         {
             int income = 0;
             return income;
+        }
+
+        private Weather SetWeather()
+        {
+            Random random = new Random();
+            double result = random.NextDouble();
+            if (result<0.20)
+            {
+                return Weather.CLOUDY;
+
+            }
+            else if (true)
+            {
+
+            }
+
         }
     }
 
