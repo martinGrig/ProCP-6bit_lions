@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\alexa\\.nuget\\packages\\": {},
-    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\mimaq\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
+      "projectUniqueName": "D:\\Documents\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
       "projectName": "WeatherScript",
-      "projectPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
-      "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\obj\\",
+      "projectPath": "D:\\Documents\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
+      "packagesPath": "C:\\Users\\mimaq\\.nuget\\packages\\",
+      "outputPath": "D:\\Documents\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mimaq\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -62,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

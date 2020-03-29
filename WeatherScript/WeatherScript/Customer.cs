@@ -26,9 +26,10 @@ namespace WeatherScript
     class Customer
     {
         private static int id = 0;
+        private int customerID;
         private int age;
         private string gender; //f/m
-        private int freeTime;
+        private int freetime;
         private double budget;
         private string purpose;
         private Category category;
@@ -36,10 +37,10 @@ namespace WeatherScript
         public Customer()
         {
             //run all methods
-            this.id++;
+            this.customerID = Customer.id++;
             this.age = SetAge();
             this.gender = SetGender();
-            this.freeTime = SetFreeTime();
+            this.freetime = SetFreeTime();
             this.budget = SetBudget();
             this.purpose = SetPurpose();
             this.category = SetCategory();
