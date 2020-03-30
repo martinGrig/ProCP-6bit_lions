@@ -45,5 +45,11 @@ namespace WeatherScript
         LARGE,
     }
 
-    
+    public enum Holidays
+    {
+        CHRISTMAS,
+        VALENTINESDAY,
+        EASTER,
+        BLACKFRIDAY,
+    }
 }
