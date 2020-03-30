@@ -7,6 +7,7 @@ namespace WeatherScript
     class Shop
     {
         private static int id = 0;
+        private int shopID;
         private string name;
         private double income;   
         private bool hasSale;
@@ -20,8 +21,7 @@ namespace WeatherScript
         
         public Shop(string name, int capacity, int popularity, double priceRange, DateTime busyHours, Category category)
         {
-            this.count = 0;
-            this.id++;
+            this.shopID = Shop.id++;
             this.name = name;
             this.income = 0;
             this.hasSale = false;
