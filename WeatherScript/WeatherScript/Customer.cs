@@ -110,7 +110,7 @@ namespace WeatherScript
                 return random.Next(181, 301); // 3 hours to 5 hours
             }
         }
-        private double SetBudget()
+        private double SetBudget(.........)
         {
             Random random = new Random();
             double result = random.NextDouble();
@@ -136,7 +136,7 @@ namespace WeatherScript
                 return random.Next(501, 1001);
             }
         }
-        private string SetPurpose()
+        private string SetPurpose() //list with chances, after the free time, array
         {
             Random random = new Random();
             double result = random.NextDouble();
@@ -166,36 +166,8 @@ namespace WeatherScript
                 return "Bathroom";
             }
         }
-        private Category SetCategory()
-        {
-            Random random = new Random();
-            double result = random.NextDouble();
+       
 
-            if (result <= 0.5)
-            {
-                return Category.NOPURPOSE;
-            }
-            else if (result > 0.5 && result <= 0.6)
-            {
-                return Category.CLOTHES;
-            }
-            else if (result > 0.6 && result <= 0.7)
-            {
-                return Category.CAFE;
-            }
-            else if (result > 0.7 && result <= 0.8)
-            {
-                return Category.ENTERTAINMENT;
-            }
-            else if (result > 0.8 && result <= 0.9)
-            {
-                return Category.FOOD;
-            }
-            else
-            {
-                return Category.ELECTRONICS;
-            }
-        }
         public int GetAge()
         {
             return age;

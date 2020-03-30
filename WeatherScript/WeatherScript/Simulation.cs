@@ -15,6 +15,7 @@ namespace WeatherScript
         private TimeSpan _duration;
         private Weather _weather;
         private bool _holiday;
+        private double _holidayMultiplier = 1;
         private bool _seasanolSale;
         private DaysOfTheWeek _dayOfTheWeek;
 
