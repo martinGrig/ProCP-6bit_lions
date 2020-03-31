@@ -6,21 +6,26 @@ namespace WeatherScript
 {
     class Position
     {
-        private static int id = 0;
+        private static int ID = 0;
+        private int id;
         private Shop shop;
         private Size size;
-        private int multiplier;
+        private double multiplier;
         private int capacity;
 
-        public Position(double multiplier,Size size)
+        public Position(double multiplier, Size size)
         {
-            this.id++;
-            this.multiplier;
+            this.id = ID++;
+            this.multiplier = SetPositionPopularity();
             this.size = size;
         }
         public void ChooseShop(Shop shop)
         {
-           this.shop = shop;
+            this.shop = shop;
+        }
+        public double SetPositionPopularity()
+        {
+            return 0.0;
         }
     }
 }
