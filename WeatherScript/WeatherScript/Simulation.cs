@@ -8,20 +8,20 @@ namespace WeatherScript
     {
         private Result result;
         private MiniMall miniMall; // represents one floor of the mall. it can be a List when multiple floors are needed
-        //private List<Shop> shops;
         private List<Customer> customers; // represents the spwan rate of customers, youll change to the unity thingy
         private DateTime _date;
         private TimeSpan _duration;
         private Weather _weather;
         private Holidays _holiday;
-        //private double _holidayMultiplier = 1;
         private bool _seasanolSale;
         private DaysOfTheWeek _dayOfTheWeek;
 
         
         public Simulation(DateTime date, TimeSpan duration, Holidays holiday, bool seasonalSale,Weather weather, DaysOfTheWeek dayOfTheWeek)
         {
-            //customers = new List<Customer>();
+            TimeSpan s = new TimeSpan(10, 30, 00); //starting hour
+            TimeSpan e = new TimeSpan(20, 30, 00); //ending hour
+            miniMall = new MiniMall("ozobi", s, e, 700, 4);
             _date = date;
             _duration = duration;
             _weather = weather;
@@ -34,9 +34,6 @@ namespace WeatherScript
             int increase = 0;
             //all the numbers you see below are based on a BIG research ;D
             double amountOfPeople = customers.Count; //this is supposed to be the amount of people spawned in the mini mall
-            double perShopVisitRate = 0;
-            double perShopIncome = 0;
-            double incomePerSimulation = miniMall.GetAllIncome();
             TimeSpan busyTime = _duration;
 
             switch (_holiday)
@@ -56,30 +53,9 @@ namespace WeatherScript
                 default:
                     break;
             }
-
-            if (_holiday)
-            {
-                increase++;
-            }
             if (_seasanolSale)
             {
-                increase++;
-                
-            }
-            if (increase == 1)
-            {
                 amountOfPeople += amountOfPeople * 0.30;
-                perShopVisitRate += perShopVisitRate * 0.30;
-            }
-            else if (increase == 2)
-            {
-                amountOfPeople += amountOfPeople * 0.60;
-                perShopVisitRate += perShopVisitRate * 30;
-            }
-
-            if (perShopVisitRate > 200 ) //temporary
-            {
-                perShopIncome += perShopIncome * 0.25;
             }
 
             //TimeSpan duration = default;
