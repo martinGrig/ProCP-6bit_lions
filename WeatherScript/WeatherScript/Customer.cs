@@ -25,28 +25,36 @@ namespace WeatherScript
   /// </summary>
     class Customer
     {
+        //fields
         private static int id = 0;
         private int customerID;
         private int age;
         private string gender; //f/m
-        private int freetime;
+        private int freeTime;
         private double budget;
-        private string purpose;
-        private Category category;
+        private Category[] preferences; //new
+        private int nrOfShopsToVisit; //set after setting free time
 
+
+        //vars used for calculations
+        private double salesBoost;
+        private double weekdayBoost;
+        private double freeTimeBoost;
+
+        //constructor
         public Customer()
         {
-            //run all methods
             this.customerID = Customer.id++;
             this.age = SetAge();
             this.gender = SetGender();
-            this.freetime = SetFreeTime();
-            this.budget = SetBudget();
-            this.purpose = SetPurpose();
-            this.category = SetCategory();
+            this.freeTime = SetFreeTime(salesBoost, weekdayBoost);
+            this.budget = SetBudget(freeTimeBoost); //to be calculated
+            this.nrOfShopsToVisit = SetNrOfShopsToVisit(freeTime);
+            this.preferences = SetPreferences(nrOfShopsToVisit);
         }
 
-        private int SetAge()
+        //private methods, for calculations
+        private int SetAge() //fix percentages
         {
             Random random = new Random();
             double result = random.NextDouble();
@@ -76,9 +84,8 @@ namespace WeatherScript
                 return random.Next(60, 76);
             }
         }
-
-        private string SetGender()
-        {
+        private string SetGender() //no change...
+        {//do we need gender if we are not using it for anything?
 
             Random random = new Random();
 
@@ -92,33 +99,41 @@ namespace WeatherScript
                 return "m";
             }
         }
-
-        private int SetFreeTime()
+        private int SetFreeTime(double salesBoost, double weekdayBoost) //based on sales/holidays, weekday, day of week too => runs FIRST
         {
+            //set free time boost for different cases
             Random random = new Random();
             double result = random.NextDouble();
 
             if (result <= 0.66)
             {
-                return random.Next(30, 91); //30 mins to 1,5 hours
+                int freeTime = random.Next(30, 91); //30 mins to 1,5 hours
+                double freeTimeModified = freeTime + freeTime * salesBoost + freeTime * weekdayBoost;
+                return Convert.ToInt32(freeTimeModified);
             }
             else if (result > 0.66 && result <= 0.9)
             {
-                return random.Next(91, 181); // 1,5 hours to 3 hours
+                int freeTime = random.Next(91, 181); // 1,5 hours to 3 hours
+                double freeTimeModified = freeTime + freeTime * salesBoost + freeTime * weekdayBoost;
+                return Convert.ToInt32(freeTimeModified);
             }
             else
             {
-                return random.Next(181, 301); // 3 hours to 5 hours
+                int freeTime = random.Next(181, 301);// 3 hours to 5 hours
+                double freeTimeModified = freeTime + freeTime * salesBoost + freeTime * weekdayBoost;
+                return Convert.ToInt32(freeTimeModified);
             }
         }
-        private double SetBudget(.........)
+        private double SetBudget(double salesBoost) //based of wether there are sales => runs AFTER SetFreeTime()
         {
             Random random = new Random();
             double result = random.NextDouble();
 
             if (result <= 0.5)
             {
-                return random.Next(0, 51);
+                int baseBudget = random.Next(0, 51);
+                int boostedBudget = Convert.ToInt32(baseBudget + baseBudget * salesBoost);
+                return boostedBudget;
             }
             else if (result > 0.5 && result <= 0.7)
             {
@@ -126,49 +141,73 @@ namespace WeatherScript
             }
             else if (result > 0.7 && result <= 0.85)
             {
-                return random.Next(101, 201);
+                int baseBudget = random.Next(101, 201);
+                int boostedBudget = Convert.ToInt32(baseBudget + baseBudget * salesBoost);
+                return boostedBudget;
             }
             else if (result > 0.85 && result <= 0.95)
             {
-                return random.Next(201, 501);
+                int baseBudget = random.Next(201, 501);
+                int boostedBudget = Convert.ToInt32(baseBudget + baseBudget * salesBoost);
+                return boostedBudget;
             }
             else
             {
-                return random.Next(501, 1001);
+                int baseBudget = random.Next(501, 1001);
+                int boostedBudget = Convert.ToInt32(baseBudget + baseBudget * salesBoost);
+                return boostedBudget;
             }
         }
-        private string SetPurpose() //list with chances, after the free time, array
+
+        private int SetNrOfShopsToVisit(int totalFreeTime) //based on free time
         {
-            Random random = new Random();
-            double result = random.NextDouble();
-
-            if (result <= 0.5)
-            {
-                return "NoPurpose";
-            }
-            else if (result > 0.5 && result <= 0.7)
-            {
-                return "Fitness";
-            }
-            else if (result > 0.7 && result <= 0.85)
-            {
-                return "Clothes";
-            }
-            else if (result > 0.85 && result <= 0.95)
-            {
-                return "Cinema";
-            }
-            else if (result > 0.85 && result <= 0.95)
-            {
-                return "Tech";
-            }
-            else
-            {
-                return "Bathroom";
-            }
+            Random r = new Random();
+            double timeSpentInShop = totalFreeTime * r.NextDouble();
+            int nrOfShopsToVisit = Convert.ToInt32(Math.Floor(totalFreeTime / timeSpentInShop)); //if the customer has time for 3.6 nr of shops, math.floor rounds 3.6 to 3, instead of 4
+            return nrOfShopsToVisit;
         }
-       
+        private Category[] SetPreferences(int nrOfPreferences) //make it an array,using persentages, based on budget, should figure out how much time one shopping will last
+        {
+            Category[] preferences = new Category[nrOfPreferences];
 
+            for (int i = 0; i < nrOfPreferences; i++)
+            { //should make it impossible to add a category more than once
+
+                Random random = new Random();
+                double result = random.NextDouble();
+
+                if (result <= 0.26) //clothing, 26% , && !preferences.Contains(Category.CLOTHES)
+                {
+                    preferences[i] = Category.CLOTHES;
+                }
+                else if (result > 0.26 && result <= 0.45)  //food, 19%
+                {
+                    preferences[i] = Category.FOOD;
+                }
+                else if (result > 0.45 && result <= 0.60) //bookstore, 15%
+                {
+                    preferences[i] = Category.BOOKSTORE;
+                }
+                else if (result > 0.60 && result <= 0.74) //entertainment, 14%
+                {
+                    preferences[i] = Category.ENTERTAINMENT;
+
+                }
+                else if (result > 0.74 && result <= 0.87) //cafe, 13%
+                {
+                    preferences[i] = Category.CAFE;
+
+                }
+                else  //jewelry, ~10%
+                {
+                    preferences[i] = Category.JEWLERY;
+
+                }
+            }
+            return preferences;
+        }
+
+        //public methods, usable after the Customer instance has been created
         public int GetAge()
         {
             return age;
@@ -179,23 +218,16 @@ namespace WeatherScript
         }
         public int GetFreeTime()
         {
-            return freetime;
+            return freeTime;
         }
         public double GetBudget()
         {
             return budget;
         }
-        public string GetPurpose()
+        public Category[] GetPreferences()
         {
-            return purpose;
+            return this.preferences;
         }
-        public Category GetCategory()
-        {
-            return category;
-        }
-        //choose shop: based on purpose, budget and free time
-
-        //buy product: based on random price and budget
         public void BuySomething(double priceOfProduct)
         {
             this.budget -= priceOfProduct;
