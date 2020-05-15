@@ -11,7 +11,7 @@ namespace WeatherScript
         private string name;
         private double income;   
         private bool hasSale;
-        private int capacity;
+        //private int capacity; no need for that
         private int popularity;
         private double priceRange;
         private DateTime busyHours;    
@@ -19,13 +19,12 @@ namespace WeatherScript
         private List<Customer> customers;
         
         
-        public Shop(string name, int capacity, int popularity, double priceRange, DateTime busyHours, Category category)
+        public Shop(string name, int popularity, double priceRange, DateTime busyHours, Category category)
         {
             this.shopID = Shop.id++;
             this.name = name;
             this.income = 0;
             this.hasSale = false;
-            this.capacity = capacity;
             this.popularity = popularity;
             this.priceRange = priceRange;
             this.busyHours = busyHours;
@@ -43,14 +42,7 @@ namespace WeatherScript
         {
             customers.Add(c);
         }
-        public bool isFull()
-        {
-            if (capacity == customers.Count)
-            {
-                return true;
-            }
-            return false;
-        }
+        
         public string GetName()
         {
             return name;
@@ -63,9 +55,9 @@ namespace WeatherScript
         {
             return category;
         }
-        public int GetCapacity()
+       public List<Customer> GetCustomers()
         {
-            return capacity;
+            return this.customers;
         }
 
     }

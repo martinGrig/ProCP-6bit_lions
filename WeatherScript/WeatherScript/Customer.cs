@@ -39,7 +39,6 @@ namespace WeatherScript
         //vars used for calculations
         private double salesBoost;
         private double weekdayBoost;
-        private double freeTimeBoost;
 
         //constructor
         public Customer()
@@ -48,7 +47,7 @@ namespace WeatherScript
             this.age = SetAge();
             this.gender = SetGender();
             this.freeTime = SetFreeTime(salesBoost, weekdayBoost);
-            this.budget = SetBudget(freeTimeBoost); //to be calculated
+            this.budget = SetBudget(salesBoost); //to be calculated
             this.nrOfShopsToVisit = SetNrOfShopsToVisit(freeTime);
             this.preferences = SetPreferences(nrOfShopsToVisit);
         }
@@ -84,8 +83,8 @@ namespace WeatherScript
                 return random.Next(60, 76);
             }
         }
-        private string SetGender() //no change...
-        {//do we need gender if we are not using it for anything?
+        private string SetGender()
+        {//for next iteration, make more research on preferences based on gender
 
             Random random = new Random();
 
@@ -99,7 +98,7 @@ namespace WeatherScript
                 return "m";
             }
         }
-        private int SetFreeTime(double salesBoost, double weekdayBoost) //based on sales/holidays, weekday, day of week too => runs FIRST
+        private int SetFreeTime(double salesBoost, double weekdayBoost) //based on sales/holidays, weekday => runs FIRST
         {
             //set free time boost for different cases
             Random random = new Random();
@@ -166,15 +165,15 @@ namespace WeatherScript
             int nrOfShopsToVisit = Convert.ToInt32(Math.Floor(totalFreeTime / timeSpentInShop)); //if the customer has time for 3.6 nr of shops, math.floor rounds 3.6 to 3, instead of 4
             return nrOfShopsToVisit;
         }
-        private Category[] SetPreferences(int nrOfPreferences) //make it an array,using persentages, based on budget, should figure out how much time one shopping will last
+        private Category[] SetPreferences(int nrOfPreferences) //make it an array,using persentages, based on budget
         {
-            Category[] preferences = new Category[nrOfPreferences];
+            Category[] preferences = new Category[nrOfPreferences]; //add a "nothing" category
 
             for (int i = 0; i < nrOfPreferences; i++)
             { //should make it impossible to add a category more than once
 
                 Random random = new Random();
-                double result = random.NextDouble();
+                double result = random.NextDouble(); //add no purpose and adjust %
 
                 if (result <= 0.26) //clothing, 26% , && !preferences.Contains(Category.CLOTHES)
                 {
@@ -205,6 +204,60 @@ namespace WeatherScript
                 }
             }
             return preferences;
+        }
+
+        public Category GetNoPurposeShop(List<Position> positions)
+        //a new customer object uses this method. the method returns a "random" shop,
+        //based on position popularity. the returned shop gets added to the customer's preferences list
+        {
+            Random random = new Random();
+            double result = random.NextDouble();
+
+            if (result <= 0.29) //position 1, 29 %
+            {
+                return positions.ElementAt(0).GetShopOnThisPosition().GetCategory();
+            }
+            else if (result > 0.29 && result <= 0.53)  //position 2, 24 %
+            {
+                return positions.ElementAt(1).GetShopOnThisPosition().GetCategory();
+            }
+            else if (result > 0.53 && result <= 0.72) //position 3, 19%
+            {
+                return positions.ElementAt(2).GetShopOnThisPosition().GetCategory();
+            }
+            else if (result > 0.72 && result <= 0.86) //position 4, 14%
+            {
+                return positions.ElementAt(3).GetShopOnThisPosition().GetCategory();
+
+            }
+            else if (result > 0.86 && result <= 0.95) //position 5, 9%
+            {
+                return positions.ElementAt(4).GetShopOnThisPosition().GetCategory();
+
+            }
+            else  //position 6, 5 %
+            {
+                return positions.ElementAt(5).GetShopOnThisPosition().GetCategory();
+
+            }
+        }
+
+        public void AdjustCustomerPreferences(Category addition) //adjusting preferences based on Shop popularity and Position popularity
+        {//shop popularity not necessary for this iteration, since we are using 1 shop of every type; shop type popularity is basically 
+            //allready set in the SetPreferences method
+            List<Category> toBeAdded = new List<Category>();
+            foreach (Category cat in this.preferences)
+            {
+                if (cat == Category.NOPURPOSE)
+                {
+                    toBeAdded.Add(GetNoPurposeShop());
+                }
+            }
+            foreach (Category newCat in toBeAdded)
+            {
+                this.preferences.Add(toBeAdded);//just ignore the "NOPURPOSE" type
+            }
+            
         }
 
         //public methods, usable after the Customer instance has been created
