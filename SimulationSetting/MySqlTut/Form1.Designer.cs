@@ -53,6 +53,9 @@
             this.tbWeather = new System.Windows.Forms.TextBox();
             this.tbHoliday = new System.Windows.Forms.TextBox();
             this.tbDayOfTheWeek = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbSales = new System.Windows.Forms.TextBox();
+            this.clmSales = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvUsers
@@ -64,7 +67,8 @@
             this.clmEndTime,
             this.clmWeather,
             this.clmHoliday,
-            this.clmDayOfTheWeek});
+            this.clmDayOfTheWeek,
+            this.clmSales});
             this.lvUsers.FullRowSelect = true;
             this.lvUsers.HideSelection = false;
             this.lvUsers.Location = new System.Drawing.Point(11, 15);
@@ -264,11 +268,34 @@
             this.tbDayOfTheWeek.Size = new System.Drawing.Size(100, 22);
             this.tbDayOfTheWeek.TabIndex = 21;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(401, 328);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 17);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Sales:";
+            // 
+            // tbSales
+            // 
+            this.tbSales.Location = new System.Drawing.Point(541, 328);
+            this.tbSales.Name = "tbSales";
+            this.tbSales.Size = new System.Drawing.Size(100, 22);
+            this.tbSales.TabIndex = 23;
+            // 
+            // clmSales
+            // 
+            this.clmSales.Text = "Sales";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 476);
+            this.Controls.Add(this.tbSales);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tbDayOfTheWeek);
             this.Controls.Add(this.tbHoliday);
             this.Controls.Add(this.tbWeather);
@@ -322,6 +349,9 @@
         private System.Windows.Forms.TextBox tbWeather;
         private System.Windows.Forms.TextBox tbHoliday;
         private System.Windows.Forms.TextBox tbDayOfTheWeek;
+        private System.Windows.Forms.ColumnHeader clmSales;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbSales;
     }
 }
 

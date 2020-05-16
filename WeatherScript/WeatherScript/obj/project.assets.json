@@ -8,18 +8,12 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\alexa\\.nuget\\packages\\": {},
     "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
-=======
-    "C:\\Users\\a_eli\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
->>>>>>> 89bfbe12f300dc76b727c4f5a1711cde955b0b7e
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
       "projectName": "WeatherScript",
       "projectPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
@@ -31,19 +25,6 @@
       ],
       "configFilePaths": [
         "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\a_eli\\Desktop\\ProcP\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
-      "projectName": "WeatherScript",
-      "projectPath": "C:\\Users\\a_eli\\Desktop\\ProcP\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\WeatherScript.csproj",
-      "packagesPath": "C:\\Users\\a_eli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a_eli\\Desktop\\ProcP\\procp-six-bit-lions\\WeatherScript\\WeatherScript\\obj\\",
-      "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
-      "configFilePaths": [
-        "C:\\Users\\a_eli\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 89bfbe12f300dc76b727c4f5a1711cde955b0b7e
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -81,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

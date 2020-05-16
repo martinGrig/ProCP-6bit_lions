@@ -29,7 +29,7 @@ namespace MySqlTut
             foreach (Simulation s in simulations)
             {
 
-                ListViewItem item = new ListViewItem(new String[] { s.ID.ToString(), s.ResultID.ToString(), s.StartTime.ToString(), s.EndTime.ToString(), s.Weather.ToString(), s.Holiday.ToString(), s.DayOfTheWeek.ToString() });
+                ListViewItem item = new ListViewItem(new String[] { s.ID.ToString(), s.ResultID.ToString(), s.StartTime.ToString(), s.EndTime.ToString(), s.Weather.ToString(), s.Holiday.ToString(), s.DayOfTheWeek.ToString(), s.Sales.ToString() });
                 item.Tag = s;
 
                 lvUsers.Items.Add(item);
@@ -57,6 +57,7 @@ namespace MySqlTut
                 String Weather = currSimulation.Weather;
                 String Holiday = currSimulation.Holiday;
                 String DayOfTheWeek = currSimulation.DayOfTheWeek;
+                double Sales = currSimulation.Sales;
                 tbID.Text = ID.ToString();
                 tbResultID.Text = ResultID.ToString();
                 tbStartTime.Text = StartTime;
@@ -64,7 +65,7 @@ namespace MySqlTut
                 tbWeather.Text = Weather;
                 tbHoliday.Text = Holiday;
                 tbDayOfTheWeek.Text = DayOfTheWeek;
-
+                tbSales.Text = Sales.ToString();
             }
             
         }
@@ -79,13 +80,14 @@ namespace MySqlTut
             string Weather = tbWeather.Text;
             string Holiday = tbHoliday.Text;
             string DayOfTheWeek = tbDayOfTheWeek.Text;
+            double Sales = Convert.ToDouble(tbSales.Text);
             if (String.IsNullOrEmpty(StartTime) || String.IsNullOrEmpty(EndTime) || String.IsNullOrEmpty(Weather) || String.IsNullOrEmpty(Holiday) || String.IsNullOrEmpty(DayOfTheWeek))
             {
                 MessageBox.Show("It's empty");
                 return;
             }
 
-            currSimulation = Simulation.Insert(ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek);
+            currSimulation = Simulation.Insert(ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek, Sales);
 
             LoadAll();
 

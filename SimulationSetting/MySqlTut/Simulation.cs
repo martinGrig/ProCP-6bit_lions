@@ -22,8 +22,9 @@ namespace MySqlTut
         public string Weather { get; private set; }
         public string Holiday { get; private set; }
         public string DayOfTheWeek { get; private set; }
+        public double Sales { get; private set; }
 
-        private Simulation(int ID, int ResultID, string StartTime, string EndTime, string Weather, string Holiday, string DayOfTheWeek)
+        private Simulation(int ID, int ResultID, string StartTime, string EndTime, string Weather, string Holiday, string DayOfTheWeek, double Sales)
         {
             this.ID = ID;
             this.ResultID = ResultID;
@@ -32,6 +33,7 @@ namespace MySqlTut
             this.Weather = Weather;
             this.Holiday = Holiday;
             this.DayOfTheWeek = DayOfTheWeek;
+            this.Sales = Sales;
         }
 
         public static void InitializeDB()
@@ -81,8 +83,9 @@ namespace MySqlTut
                 string Weather = reader["Weather"].ToString();
                 string Holiday = reader["Holiday"].ToString();
                 string DayOfTheWeek = reader["DayOfTheWeek"].ToString();
+                double Sales = (double)reader["Sales"];
 
-                Simulation s = new Simulation(ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek);
+                Simulation s = new Simulation(ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek, Sales);
 
                 simulations.Add(s);
             }
@@ -94,9 +97,9 @@ namespace MySqlTut
             return simulations;
         }
 
-         public static Simulation Insert(int ID, int ResultID, string StartTime, string EndTime, string Weather, string Holiday, string DayOfTheWeek)
+         public static Simulation Insert(int ID, int ResultID, string StartTime, string EndTime, string Weather, string Holiday, string DayOfTheWeek, double Sales)
         {
-            String query = string.Format("INSERT INTO simulation(ID, ResultID, StartTime,EndTime, Weather, Holiday, DayOfTheWeek ) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek);
+            String query = string.Format("INSERT INTO simulation(ID, ResultID, StartTime,EndTime, Weather, Holiday, DayOfTheWeek, Sales ) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek, Sales);
 
             MySqlCommand cmd = new MySqlCommand(query, dbConn);
 
@@ -105,7 +108,7 @@ namespace MySqlTut
             cmd.ExecuteNonQuery();
             int id = (int)cmd.LastInsertedId;
 
-            Simulation simulation = new Simulation(ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek);
+            Simulation simulation = new Simulation(ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek, Sales);
 
             dbConn.Close();
 

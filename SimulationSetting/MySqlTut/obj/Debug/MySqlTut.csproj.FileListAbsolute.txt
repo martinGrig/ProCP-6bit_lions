@@ -30,3 +30,15 @@ C:\Users\Dimitar Ivanov\Desktop\MySqlTut\MySqlTut\obj\Debug\MySqlTut.csproj.Core
 C:\Users\Dimitar Ivanov\Desktop\MySqlTut\MySqlTut\obj\Debug\MySqlTut.csproj.CopyComplete
 C:\Users\Dimitar Ivanov\Desktop\MySqlTut\MySqlTut\obj\Debug\MySqlTut.exe
 C:\Users\Dimitar Ivanov\Desktop\MySqlTut\MySqlTut\obj\Debug\MySqlTut.pdb
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\bin\Debug\MySqlTut.exe.config
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\bin\Debug\MySqlTut.exe
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\bin\Debug\MySqlTut.pdb
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\bin\Debug\Google.Protobuf.dll
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.csprojAssemblyReference.cache
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.Form1.resources
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.Properties.Resources.resources
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.csproj.GenerateResource.cache
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.csproj.CoreCompileInputs.cache
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.csproj.CopyComplete
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.exe
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.pdb
