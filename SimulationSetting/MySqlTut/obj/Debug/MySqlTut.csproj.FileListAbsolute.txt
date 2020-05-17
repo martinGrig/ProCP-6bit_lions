@@ -42,3 +42,5 @@ C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySql
 C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.csproj.CopyComplete
 C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.exe
 C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.pdb
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.Form2.resources
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\SimulationSetting\MySqlTut\obj\Debug\MySqlTut.Form3.resources
