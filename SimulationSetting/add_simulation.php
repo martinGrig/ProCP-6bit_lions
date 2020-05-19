@@ -6,8 +6,9 @@ $EndTime = $_POST['EndTime'];
 $Weather = $_POST['Weather'];
 $Holiday = $_POST['Holiday'];
 $DayOfTheWeek = $_POST['DayOfTheWeek'];
-$stmt = $dbconnection->prepare("INSERT INTO simulation (StartTime, EndTime, Weather, Holiday, DayOfTheWeek) VALUES (?, ?, ?, ?, ?);");
-$stmt->bind_param("si", $StartTime, $EndTime, $Weather, $Holiday, $DayOfTheWeek);
+$Sales = $_POST['Sales'];
+$stmt = $dbconnection->prepare("INSERT INTO simulation (StartTime, EndTime, Weather, Holiday, DayOfTheWeek, Sales) VALUES (?, ?, ?, ?, ?, ?);");
+$stmt->bind_param("sssssd", $StartTime, $EndTime, $Weather, $Holiday, $DayOfTheWeek, $Sales);
 $stmt->execute();
 
 

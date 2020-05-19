@@ -18,7 +18,14 @@ if($result)
     while($row = mysqli_fetch_assoc($result))
     {
         array_push($simulations, [
-            'ID' => $row['ID']]);
+            'ID' => $row['ID'],
+            'StartTime' => $row['StartTime'],
+            'EndTime' => $row['EndTime'],
+            'Weather' => $row['Weather'],
+            'Holiday' => $row['Holiday'],
+            'DayOfTheWeek' => $row['DayOfTheWeek'],
+            'Sales' => $row['Sales']
+            ])
     }
     echo json_encode($simulations);
 }
