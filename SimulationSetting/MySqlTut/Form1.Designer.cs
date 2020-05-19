@@ -30,14 +30,13 @@
         {
             this.lvUsers = new System.Windows.Forms.ListView();
             this.clmID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmResultID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmStartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmEndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmWeather = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmHoliday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmDayOfTheWeek = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmSales = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLoadAll = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
@@ -47,24 +46,25 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbID = new System.Windows.Forms.TextBox();
-            this.tbResultID = new System.Windows.Forms.TextBox();
             this.tbStartTime = new System.Windows.Forms.TextBox();
             this.tbEndTime = new System.Windows.Forms.TextBox();
             this.tbWeather = new System.Windows.Forms.TextBox();
             this.tbHoliday = new System.Windows.Forms.TextBox();
             this.tbDayOfTheWeek = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbSales = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lvUsers
             // 
             this.lvUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmID,
-            this.clmResultID,
             this.clmStartTime,
             this.clmEndTime,
             this.clmWeather,
             this.clmHoliday,
-            this.clmDayOfTheWeek});
+            this.clmDayOfTheWeek,
+            this.clmSales});
             this.lvUsers.FullRowSelect = true;
             this.lvUsers.HideSelection = false;
             this.lvUsers.Location = new System.Drawing.Point(11, 15);
@@ -81,11 +81,6 @@
             // 
             this.clmID.Text = "ID";
             this.clmID.Width = 49;
-            // 
-            // clmResultID
-            // 
-            this.clmResultID.Text = "ResultID";
-            this.clmResultID.Width = 70;
             // 
             // clmStartTime
             // 
@@ -112,6 +107,10 @@
             this.clmDayOfTheWeek.Text = "DayOfTheWeek";
             this.clmDayOfTheWeek.Width = 120;
             // 
+            // clmSales
+            // 
+            this.clmSales.Text = "Sales";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -122,20 +121,10 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Id:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 267);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "ResultID:";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 299);
+            this.label3.Location = new System.Drawing.Point(8, 267);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 17);
@@ -178,17 +167,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 328);
+            this.label4.Location = new System.Drawing.Point(8, 304);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "EndTime:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(401, 235);
+            this.label5.Location = new System.Drawing.Point(8, 345);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 17);
@@ -198,7 +188,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(401, 267);
+            this.label6.Location = new System.Drawing.Point(401, 240);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 17);
@@ -208,7 +198,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(401, 299);
+            this.label7.Location = new System.Drawing.Point(401, 281);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 17);
@@ -222,59 +212,70 @@
             this.tbID.Size = new System.Drawing.Size(100, 22);
             this.tbID.TabIndex = 15;
             // 
-            // tbResultID
-            // 
-            this.tbResultID.Location = new System.Drawing.Point(128, 267);
-            this.tbResultID.Name = "tbResultID";
-            this.tbResultID.Size = new System.Drawing.Size(100, 22);
-            this.tbResultID.TabIndex = 16;
-            // 
             // tbStartTime
             // 
-            this.tbStartTime.Location = new System.Drawing.Point(128, 294);
+            this.tbStartTime.Location = new System.Drawing.Point(128, 267);
             this.tbStartTime.Name = "tbStartTime";
             this.tbStartTime.Size = new System.Drawing.Size(100, 22);
             this.tbStartTime.TabIndex = 17;
             // 
             // tbEndTime
             // 
-            this.tbEndTime.Location = new System.Drawing.Point(128, 322);
+            this.tbEndTime.Location = new System.Drawing.Point(128, 304);
             this.tbEndTime.Name = "tbEndTime";
             this.tbEndTime.Size = new System.Drawing.Size(100, 22);
             this.tbEndTime.TabIndex = 18;
             // 
             // tbWeather
             // 
-            this.tbWeather.Location = new System.Drawing.Point(541, 230);
+            this.tbWeather.Location = new System.Drawing.Point(128, 345);
             this.tbWeather.Name = "tbWeather";
             this.tbWeather.Size = new System.Drawing.Size(100, 22);
             this.tbWeather.TabIndex = 19;
             // 
             // tbHoliday
             // 
-            this.tbHoliday.Location = new System.Drawing.Point(541, 262);
+            this.tbHoliday.Location = new System.Drawing.Point(541, 240);
             this.tbHoliday.Name = "tbHoliday";
             this.tbHoliday.Size = new System.Drawing.Size(100, 22);
             this.tbHoliday.TabIndex = 20;
             // 
             // tbDayOfTheWeek
             // 
-            this.tbDayOfTheWeek.Location = new System.Drawing.Point(541, 299);
+            this.tbDayOfTheWeek.Location = new System.Drawing.Point(541, 281);
             this.tbDayOfTheWeek.Name = "tbDayOfTheWeek";
             this.tbDayOfTheWeek.Size = new System.Drawing.Size(100, 22);
             this.tbDayOfTheWeek.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(401, 328);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 17);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Sales:";
+            // 
+            // tbSales
+            // 
+            this.tbSales.Location = new System.Drawing.Point(541, 328);
+            this.tbSales.Name = "tbSales";
+            this.tbSales.Size = new System.Drawing.Size(100, 22);
+            this.tbSales.TabIndex = 23;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 476);
+            this.Controls.Add(this.tbSales);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tbDayOfTheWeek);
             this.Controls.Add(this.tbHoliday);
             this.Controls.Add(this.tbWeather);
             this.Controls.Add(this.tbEndTime);
             this.Controls.Add(this.tbStartTime);
-            this.Controls.Add(this.tbResultID);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -284,7 +285,6 @@
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnLoadAll);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lvUsers);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -299,10 +299,8 @@
 
         private System.Windows.Forms.ListView lvUsers;
         private System.Windows.Forms.ColumnHeader clmID;
-        private System.Windows.Forms.ColumnHeader clmResultID;
         private System.Windows.Forms.ColumnHeader clmStartTime;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLoadAll;
         private System.Windows.Forms.Button btnInsert;
@@ -316,12 +314,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbID;
-        private System.Windows.Forms.TextBox tbResultID;
         private System.Windows.Forms.TextBox tbStartTime;
         private System.Windows.Forms.TextBox tbEndTime;
         private System.Windows.Forms.TextBox tbWeather;
         private System.Windows.Forms.TextBox tbHoliday;
         private System.Windows.Forms.TextBox tbDayOfTheWeek;
+        private System.Windows.Forms.ColumnHeader clmSales;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbSales;
     }
 }
 

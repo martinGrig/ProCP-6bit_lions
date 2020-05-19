@@ -13,13 +13,25 @@ namespace MySqlTut
     {
 
         private Simulation currSimulation;
-
+        Form2 form2;
+        Form3 form3;
         public Form1()
         {
             InitializeComponent();
             Simulation.InitializeDB();
+           // Result.InitializeDB();
+            form2 = new Form2();
+            form3 = new Form3();
+            form2.Show();
+            form3.Show();
+            this.Text = "Settings";
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Form2 form2 = new Form2();
+            //form2.Show();
+        }
         private void LoadAll()
         {
             List<Simulation> simulations = Simulation.GetSimulations();
@@ -29,7 +41,7 @@ namespace MySqlTut
             foreach (Simulation s in simulations)
             {
 
-                ListViewItem item = new ListViewItem(new String[] { s.ID.ToString(), s.ResultID.ToString(), s.StartTime.ToString(), s.EndTime.ToString(), s.Weather.ToString(), s.Holiday.ToString(), s.DayOfTheWeek.ToString() });
+                ListViewItem item = new ListViewItem(new String[] { s.ID.ToString(), s.StartTime.ToString(), s.EndTime.ToString(), s.Weather.ToString(), s.Holiday.ToString(), s.DayOfTheWeek.ToString(), s.Sales.ToString() });
                 item.Tag = s;
 
                 lvUsers.Items.Add(item);
@@ -51,20 +63,19 @@ namespace MySqlTut
                 currSimulation = (Simulation)item.Tag;
 
                 int ID = currSimulation.ID;
-                int ResultID = currSimulation.ResultID;
                 String StartTime = currSimulation.StartTime;
                 String EndTime = currSimulation.EndTime;
                 String Weather = currSimulation.Weather;
                 String Holiday = currSimulation.Holiday;
                 String DayOfTheWeek = currSimulation.DayOfTheWeek;
+                double Sales = currSimulation.Sales;
                 tbID.Text = ID.ToString();
-                tbResultID.Text = ResultID.ToString();
                 tbStartTime.Text = StartTime;
                 tbEndTime.Text = EndTime;
                 tbWeather.Text = Weather;
                 tbHoliday.Text = Holiday;
                 tbDayOfTheWeek.Text = DayOfTheWeek;
-
+                tbSales.Text = Sales.ToString();
             }
             
         }
@@ -73,19 +84,19 @@ namespace MySqlTut
         {
 
             int ID = Convert.ToInt32(tbID.Text);
-            int ResultID = Convert.ToInt32(tbResultID.Text);
             string StartTime = tbStartTime.Text;
             string EndTime = tbEndTime.Text;
             string Weather = tbWeather.Text;
             string Holiday = tbHoliday.Text;
             string DayOfTheWeek = tbDayOfTheWeek.Text;
+            double Sales = Convert.ToDouble(tbSales.Text);
             if (String.IsNullOrEmpty(StartTime) || String.IsNullOrEmpty(EndTime) || String.IsNullOrEmpty(Weather) || String.IsNullOrEmpty(Holiday) || String.IsNullOrEmpty(DayOfTheWeek))
             {
                 MessageBox.Show("It's empty");
                 return;
             }
 
-            currSimulation = Simulation.Insert(ID, ResultID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek);
+            currSimulation = Simulation.Insert(ID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek, Sales);
 
             LoadAll();
 
@@ -106,6 +117,11 @@ namespace MySqlTut
 
             LoadAll();
             
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
