@@ -11,18 +11,18 @@ $db = 'dbi400672';
 $dbport = 3306;
 private $connection;
 
-/*
-$dbconnection = mysqli_connect($dbhost, $dbuser, $dbpassword, $db);
+
+$dbconnection = mysqli_connect($dbhost, $dbuser, $dbpassword, $db, $dbport);
 
 if($dbconnection){
-    connect
+    echo("BRAO");
 }
 else{
     echo("Connection failed " . mysql_error());
 }
-*/
-///
 
+
+/*
 public function connect() {
 
     $this->connection = null;
@@ -37,5 +37,6 @@ public function connect() {
 
     return $this->connection;
 }
+*/
 
 ?>
