@@ -1,36 +1,17 @@
 <?php
+
 include 'dbconnect.php';
+//Fetch 3 rows from actor table
+  $result = $dblink->query("SELECT * FROM shop");
 
-$query = "SELECT * FROM shop;";
-$result = mysqli_query($dbconnection, $query);
+//Initialize array variable
+  $dbdata = array();
 
-if(!$result)
-{
-    echo"There was an error with the query!";
-    exit();
-}
+//Fetch into associative array
+  while ( $row = $result->fetch_assoc())  {
+	$dbdata[]=$row;
+  }
 
-$shops = [];
-
-if($result)
-{
-    if($result->num_rows === 0) exit('No rows');
-    while($row = mysqli_fetch_assoc($result))
-    {
-        array_push($shops, [
-            'ID' => $row['ID'],
-            'PositionID' => $row['PositionID'],
-            'Name' => $row['Name'],
-            'Capacity' => $row['Capacity'],
-            'Popularity' => $row['Popularity'],
-            'PriceRange' => $row['PriceRange'],
-            'BusyHours' => $row['BusyHours'],
-            'Category' => $row['Category']
-            ])
-    }
-    echo json_encode($shops);
-}
-
-header('Content-Type: application/json');
-
+//Print array in JSON format
+ echo json_encode($dbdata);
 ?>
