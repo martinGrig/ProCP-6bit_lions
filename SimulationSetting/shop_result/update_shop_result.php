@@ -1,14 +1,12 @@
 <?php
 include 'dbconnect.php';
 
-$ID = $_POST['ID'];
+$ResultID = $_POST['ResultID'];
 $ShopID = $_POST['ShopID'];
 $Income = $_POST['Income'];
-$Visits = $_POST['Visits'];
-$TotalIncome = $_POST['TotalIncome'];
-$Duration = $_POST['Duration'];
-$stmt = $dblink->prepare("UPDATE shop_result SET ShopID = ?, Income =?, Visits = ?, TotalIncome = ?, Duration = ? WHERE ID = ?");
-$stmt->bind_param("ididsi", $ShopID, $Income, $Visits, $TotalIncome, $Duration, $ID);
+$Visitors = $_POST['Visitors'];
+$stmt = $dblink->prepare("UPDATE shop_result SET Income =?, Visitors = ? WHERE ResultID = ? AND ShopID = ?");
+$stmt->bind_param("diii", $Income, $Visitors, $ResultID, $ShopID);
 $stmt->execute();
 $stmt->close();
 $dblink->close();
