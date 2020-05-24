@@ -4,14 +4,14 @@ include 'dbconnect.php';
   $result = $dblink->query("SELECT * FROM simulation");
 
 //Initialize array variable
-  $dbdata = array();
+  $simulations = array();
 
 //Fetch into associative array
   while ( $row = $result->fetch_assoc())  {
-	$dbdata[]=$row;
+	$simulations[]=$row;
   }
 
 //Print array in JSON format
- echo json_encode($dbdata);
-
+ echo json_encode($simulations);
+ header('Content-Type: application/json');
 ?>

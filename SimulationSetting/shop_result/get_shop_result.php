@@ -1,17 +1,17 @@
 <?php
 include 'dbconnect.php';
 //Fetch 3 rows from actor table
-  $result = $dblink->query("SELECT * FROM shop");
+  $result = $dblink->query("SELECT * FROM shop_result");
 
 //Initialize array variable
-  $shops = array();
+  $shop_result = array();
 
 //Fetch into associative array
   while ( $row = $result->fetch_assoc())  {
-	$shops[]=$row;
+	$shop_result[]=$row;
   }
 
 //Print array in JSON format
- echo json_encode($shops);
+ echo json_encode($shop_result);
  header('Content-Type: application/json');
 ?>
