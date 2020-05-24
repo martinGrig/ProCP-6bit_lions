@@ -1,35 +1,17 @@
 <?php
 include 'dbconnect.php';
+//Fetch 3 rows from actor table
+  $result = $dblink->query("SELECT * FROM simulation");
 
-$query = "SELECT * FROM simulation;";
-$result = mysqli_query($dbconnection, $query);
+//Initialize array variable
+  $simulations = array();
 
-if(!$result)
-{
-    echo"There was an error with the query!";
-    exit();
-}
+//Fetch into associative array
+  while ( $row = $result->fetch_assoc())  {
+	$simulations[]=$row;
+  }
 
-$simulations = [];
-
-if($result)
-{
-    if($result->num_rows === 0) exit('No rows');
-    while($row = mysqli_fetch_assoc($result))
-    {
-        array_push($simulations, [
-            'ID' => $row['ID'],
-            'StartTime' => $row['StartTime'],
-            'EndTime' => $row['EndTime'],
-            'Weather' => $row['Weather'],
-            'Holiday' => $row['Holiday'],
-            'DayOfTheWeek' => $row['DayOfTheWeek'],
-            'Sales' => $row['Sales']
-            ])
-    }
-    echo json_encode($simulations);
-}
-
-header('Content-Type: application/json');
-
+//Print array in JSON format
+ echo json_encode($simulations);
+ header('Content-Type: application/json');
 ?>

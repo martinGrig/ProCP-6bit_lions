@@ -1,19 +1,11 @@
 <?php
 include 'dbconnect.php';
 
-$StartTime = $_POST['StartTime'];
-$EndTime = $_POST['EndTime'];
-$Weather = $_POST['Weather'];
-$Holiday = $_POST['Holiday'];
-$DayOfTheWeek = $_POST['DayOfTheWeek'];
-$Sales = $_POST['Sales'];
-$stmt = $dbconnection->prepare("INSERT INTO simulation (StartTime, EndTime, Weather, Holiday, DayOfTheWeek, Sales) VALUES (?, ?, ?, ?, ?, ?);");
-$stmt->bind_param("sssssd", $StartTime, $EndTime, $Weather, $Holiday, $DayOfTheWeek, $Sales);
+$sql = "INSERT INTO simulation (ID, StartTime, EndTime, Weather, Holiday, DayOfTheWeek, Sales) VALUES (?,?,?,?,?,?,?)";
+$stmt = $dblink->prepare($sql);
+$stmt->bind_param("isssssd", $_POST['ID'], $_POST['StartTime'], $_POST['EndTime'], $_POST['Weather'], $_POST['Holiday'], $_POST['DayOfTheWeek'], $_POST['Sales']);
 $stmt->execute();
-
-
-
 $stmt->close();
-$dbconnection->close();
+$dblink->close();
 
 ?>
