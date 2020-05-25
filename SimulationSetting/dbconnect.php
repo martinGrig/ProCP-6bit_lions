@@ -5,17 +5,18 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // Initialize variable for database credentials
 $dbhost = 'studmysql01.fhict.local';
-$dbuser = 'dbi400672';
-$dbpass = 'ProCPLions';
-$dbname = 'dbi400672';
+$dbuser = 'dbi402538';
+$dbpass = 'randompassword';
+$dbname = 'dbi402538';
 
 //Create database connection
-  $dblink = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+  $dblink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 //Check connection was successful
-  if ($dblink->connect_errno) {
-     printf("Failed to connect to database");
-     exit();
+  if($dblink){
+  }
+  else{
+      echo("Connection failed ". mysqli_errno(). "   " . mysqli_error());
   }
 
 ?>
