@@ -3,7 +3,7 @@ include 'dbconnect.php';
 //Fetch 3 rows from actor table
 
 $ResultID = $_POST['ResultID'];
-  $result = $dblink->query("SELECT * FROM shop_result WHERE $ResultID");
+  $result = $dblink->query("SELECT * FROM shop_result WHERE ResultID = '$ResultID'");
 //Initialize array variable
   $shop_result = array();
 

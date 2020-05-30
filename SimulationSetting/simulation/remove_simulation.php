@@ -1,9 +1,9 @@
 <?php
 include 'dbconnect.php';
 
-$ID = $_POST['ID'];
-$stmt = $dblink->prepare("DELETE FROM simulation WHERE ID = ?");
-$stmt->bind_param("i", $ID);
+$Name = $_POST['Name'];
+$stmt = $dblink->prepare("DELETE FROM simulation WHERE Name = ?");
+$stmt->bind_param("s", $Name);
 $stmt->execute();
 $stmt->close();
 $dblink->close();
