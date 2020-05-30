@@ -2,8 +2,8 @@
 include 'dbconnect.php';
 //Fetch 3 rows from actor table
 
-$SimulationName = $_POST['SimulationName'];
-  $result = $dblink->query("SELECT * FROM shop_position WHERE SimulationName = '$SimulationName'");
+$ShopName = $_POST['ShopName'];
+  $result = $dblink->query("SELECT PositionID FROM shop_position WHERE ShopName = '$ShopName'");
 //Initialize array variable
   $shop_position = array();
 

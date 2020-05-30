@@ -1,11 +1,11 @@
 <?php
 include 'dbconnect.php';
 
-$SimulationID = $_POST['SimulationID'];
-$ShopID = $_POST['ShopID'];
+$SimulationName = $_POST['SimulationName'];
+$ShopName = $_POST['ShopName'];
 $PositionID = $_POST['PositionID'];
-$stmt = $dblink->prepare("UPDATE shop_position SET PositionID = ? WHERE SimulationID = ? AND ShopID = ?");
-$stmt->bind_param("iii", $PositionID, $SimulationID, $ShopID);
+$stmt = $dblink->prepare("UPDATE shop_position SET PositionID = ? WHERE SimulationName = ? AND ShopName = ?");
+$stmt->bind_param("iss", $PositionID, $SimulationName, $ShopName);
 $stmt->execute();
 $stmt->close();
 $dblink->close();

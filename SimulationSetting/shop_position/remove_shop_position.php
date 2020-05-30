@@ -1,10 +1,10 @@
 <?php
 include 'dbconnect.php';
 
-$SimulationID = $_POST['SimulationID'];
-$ShopID = $_POST['ShopID'];
-$stmt = $dblink->prepare("DELETE FROM shop_position WHERE SimulationID = ? AND ShopID = ?");
-$stmt->bind_param("ii", $SimulationID, $ShopID);
+$SimulationName = $_POST['SimulationName'];
+$ShopName = $_POST['ShopName'];
+$stmt = $dblink->prepare("DELETE FROM shop_position WHERE SimulationName = ? AND ShopName = ?");
+$stmt->bind_param("ss", $SimulationName, $ShopName);
 $stmt->execute();
 $stmt->close();
 $dblink->close();
