@@ -5,7 +5,16 @@ $sql = "INSERT INTO result (ID, SimulationName, TotalIncome, TotalVisitors, Dura
 $stmt = $dblink->prepare($sql);
 $stmt->bind_param("isdis", $_POST['ID'], $_POST['SimulationName'] $_POST['TotalIncome'], $_POST['TotalVisitors'], $_POST['Duration']);
 $stmt->execute();
+
+$result = $dblink->query("SELECT LAST_INSERT_ID();");
+$row = $result->fetch_assoc();
+foreach($row as $key=>$value)
+$resultID = $value;
+
 $stmt->close();
 $dblink->close();
 
+//Print array in JSON format
+echo $resultID;
+header('Content-Type: application/json');
 ?>
