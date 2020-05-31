@@ -160,29 +160,41 @@ namespace ShopPositionOptimization
         }
         //from here
         /*
-        array1; original array, takes positions and shops from ui
-        array2; iterative array, empty in the begnning
+            var array1 = new Dictionary<int, string>(); //original array, takes positions and shops from ui; never changes throughout the code below!
+            array1.Add(1, "shop1");
+            array1.Add(2, "shop2");
+            array1.Add(3, "shop3");
+            array1.Add(4, "shop4");
+            array1.Add(5, "shop5");
 
-        for (int i = 0; i < 3; i++) //i=0
+            var array2 = new Dictionary<int, string>(); //iterative array, empty in the begnning; changes each loop, using the positions of array1
+
+        //run sim once with array1 because we also want to use the current positioning for the calculations. this avoids going through the loop below once
+        
+
+        for (int i = 0; i <= 3; i++)   //loops 4 times. uses array1 as a map and array2 for switching the placements. 
         {                
-            array2[1+i] = array1[5]; //ok
+            array2[1+i] = array1[5]; //always begin with copying the last shop from array1 into the first position of array2
 
-            int counter=i;
+            int pivot1=1;  //pointer for array1; always points to the shop we are copying from array1
+            int pivot2=i+2;  //pointer for array2; always points to the position we are BEGINNING with
 
-            for (int j = 1; j <= counter ; j++) //from the beginning of array 2 till the current
+            for (int j = pivot2; j <= 5 ; j++) //from pivot2 till the end of the array
             {
-                array2[j + 1] = array1[counter+1];
-                counter++;
+                array2[j] = array1[pivot1];
+                pivot1++;
             }
-            for (int a = counter; a <=5; a++) //from current till the end of array 2
-            { 
-                array2[j + 1] = array1[counter];
-                counter++;
+            if(pivot2>2){ //avoids array out of bounds exeption and starts copying shops to the beginning of array2
+                for (int a = 1; a <=pivot2-2; a++) //from the beginning of array2 till pivot2, but also skipping the first switching of places
+                { 
+                    array2[a] = array1[pivot1];
+                    pivot1++;
+                }
             }
-
             //runSim(); //use array2 for this
         }
+        OptimizeShopPlacement();
         */
 
-    }  
+    }
 }
