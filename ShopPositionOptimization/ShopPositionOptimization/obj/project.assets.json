@@ -8,23 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\alexa\\.nuget\\packages\\": {},
-    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Marti\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\ShopPositionOptimization\\ShopPositionOptimization\\ShopPositionOptimization.csproj",
+      "projectUniqueName": "C:\\Users\\Marti\\Desktop\\procp-six-bit-lions\\ShopPositionOptimization\\ShopPositionOptimization\\ShopPositionOptimization.csproj",
       "projectName": "ShopPositionOptimization",
-      "projectPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\ShopPositionOptimization\\ShopPositionOptimization\\ShopPositionOptimization.csproj",
-      "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\ShopPositionOptimization\\ShopPositionOptimization\\obj\\",
+      "projectPath": "C:\\Users\\Marti\\Desktop\\procp-six-bit-lions\\ShopPositionOptimization\\ShopPositionOptimization\\ShopPositionOptimization.csproj",
+      "packagesPath": "C:\\Users\\Marti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Marti\\Desktop\\procp-six-bit-lions\\ShopPositionOptimization\\ShopPositionOptimization\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -57,12 +53,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.2, 3.1.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -71,7 +61,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
