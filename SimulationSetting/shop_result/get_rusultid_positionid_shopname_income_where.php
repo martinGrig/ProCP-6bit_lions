@@ -6,7 +6,7 @@ $Weather = $_POST['Weather'];
 $Holiday = $_POST['Holiday'];
 $DayOfTheWeek = $_POST['DayOfTheWeek'];
 $Sales = $_POST['Sales'];
-  $result = $dblink->query("SELECT ResultID, PositionID, r.ShopName, Income FROM shop_result r left join result rm on r.ResultID = rm.ID join shop_position p on r.ShopName=p.ShopName AND rm.SimulationName=p.SimulationName WHERE ResultID IN ( SELECT ID FROM result WHERE SimulationName IN ( SELECT Name FROM simulation WHERE Weather = '$Weather' AND Holiday = '$Holiday' AND DayOfTheWeek = '$DayOfTheWeek' AND Sales = '$Sales'))");
+  $result = $dblink->query("SELECT ResultID, PositionID, r.ShopName, Income FROM shop_result r left join result rm on r.ResultID = rm.ID join shop_position p on r.ShopName=p.ShopName AND rm.SimulationName=p.SimulationName WHERE ResultID IN ( SELECT ID FROM result WHERE SimulationName IN ( SELECT Name FROM simulation WHERE Weather = '$Weather' AND Holiday = '$Holiday' AND DayOfTheWeek = '$DayOfTheWeek' AND Sales = '$Sales')) ORDER BY PositionID");
 //Initialize array variable
   $shop_result = array();
 
