@@ -10,7 +10,7 @@ namespace ShopPositionOptimization
 {
     class ShopPlacementOptimization
     {
-        
+
         private Position[] positions;
         private Result[] shopResults;
         private Dictionary<int, string> shopPositions; //Position, shopName
@@ -29,43 +29,41 @@ namespace ShopPositionOptimization
         }
         public void PopulateShopPositionsDictionary()
         {
-            foreach(ShopPlacement sp in shopPlacements)
+            foreach  (ShopPlacement sp in shopPlacements)
             {
                 shopPositions.Add(sp.PositionID, sp.ShopName);
-
-
             }
         }
 
         public void MakeRollercoaster(List<Dictionary<string, int>> list) //Create the switch statement to calculate and compare what shop 
         {                                                                  //made the most at what position and save them with their best ProfitPerPosition
-            
-            
+
+
         }
 
-        public Dictionary<int, string>  OptimizeShopPlacement(string WhoKnowsWhat)
+        public Dictionary<int, string> OptimizeShopPlacement()
         {
-            Sort(shopResults, IComparer);  //sort by position, not done yet
+            //get the array of json objects, it is sorted by positionID
 
-            double[] shopRevenues = 5;
-            List<string> shopNames = 5;
+            double[] shopRevenues = 5;      //This shopRevenue array represents the highest income for every POSITION. They are always 5.
+            List<string> shopNames = 5;     //shopName array saves the name of the most profitable shop for each POSITION. 
 
-            if (shopResults.Lenght >= 15)
+            if (shopResults.Lenght >= 15)      //At least 15, because the research showed that we need at least 3 simulation for our algorithm to run properly and deliver.
             {
 
                 for (int i = 0; i < shopResults.Length; i++)
                 {
-                    switch (shopResults[i].positionID)
+                    switch (shopResults[i].positionID)//This switch statement has to return dictionary in all cases. Otherwise VS will complain.
                     {
-                        case 1:
+                        case 1: //position 1
                             if (shopRevenues[0] < shopResults[i].revenue)
                             {
                                 shopRevenues[0] = shopResults[i].revenue;
-                                shopNames.ElementAt(0) = shopResults[i].shopname;                                
+                                shopNames.ElementAt(0) = shopResults[i].shopname;
                             }
                             break;
 
-                        case 2:
+                        case 2: //position 2...
                             if (shopRevenues[1] < shopResults[i].revenue && !shopNames.Contains(shopResults[i].shopName))
                             {
                                 shopRevenues[1] = shopResults[i].revenue;
@@ -92,7 +90,7 @@ namespace ShopPositionOptimization
                             break;
 
 
-                        case 5:
+                        default:
                             if (shopRevenues[4] < shopResults[i].revenue && !shopNames.Contains(shopResults[i].shopName))
                             {
                                 shopRevenues[4] = shopResults[i].revenue;
@@ -102,110 +100,89 @@ namespace ShopPositionOptimization
                     }
                 }
 
-            for (int i = 0; i < shopNames.Count; i++)
-            {
-                shopPositions.Add(i + 1, shopNames.ElementAt(i));
-            }
-
-                    
-            //////////////////////////////////////////
-            //shopPositions.Add(1, row.shopname);
-
-            //case position = 2
-            //if (max2<row.revenue)
-            //max2=row.revenue
-            //shop2 = row.shopname
-            //shopPositions.Add(2, row.shopname);
-
-            //case position = 3
-            //if (max3<row.revenue)
-            //max3=row.revenue
-            //shop3 = row.shopname
-            //shopPositions.Add(3, row.shopname);
-
-            //case position = 4
-            //if (max3<row.revenue)
-            //max3=row.revenue
-            //shop3 = row.shopname
-            //shopPositions.Add(4, row.shopname);
-
-            //case position = 5
-            //if (max3<row.revenue)
-            //max3=row.revenue
-            //shop3 = row.shopname
-            //shopPositions.Add(5, row.shopname);
-
-
-            //}
-            //else run 3 simulations
-            //put stuff in dictionary
-
-            //second way
-
-            //double max1, max2, max3, max4, max5;
-            //string shop1, shop2, shop3...
-
-            //if (shopResults.Lenght >= 5)
-            //{
-            //for (int i = 0; i < positionShopResultList.Count; i++)
-            //{
-            //    for(int j = 1; j < 6; j++){
-            //    if(){}
-            //}
-            //}
-            //for i=0; i<shopResults.Length; i++ // this for have to loop through all the results returned from the database
-
-            //switch(shopResults[i].positionId) // go through all the results and compare the revenue to see which shop is most suitable for what possition
-
-            //case position = 1
-            //if (max1<row.revenue)
-            //max1=row.revenue //change the highest income for position 1
-            //shop1 = row.shopname // change the highest income shop for position 1
-
-            List<int> revenuetaOne = new List<int>();
-            for (int i = 0; i < shopPlacements.Count; i++)
-            {
-
-                foreach (KeyValuePair<int, string> entry in shopPositions)
+                for (int i = 0; i < shopNames.Count; i++)
                 {
-                    if (entry.Key == 1 && entry.Value != row.shopname && revenuetaOne[i--] < shopPlacements[i] )
-                    {
-                        //max1=row.revenue
-                        //shop1 = row.shopname
-                        revenueta.Add(shopPlacement[i].Income);
-                        revenuetaOne.Sort();
-                        shopPositions.Add(1, )
-
-                    }
-                    if (entry.Key == 2 && entry.Value != row.shopname)
-                    {
-                        //max1=row.revenue
-                        //shop1 = row.shopname
-                    }
-                    if (entry.Key == 3 && entry.Value != row.shopname && max3 < row.revenue)
-                    {
-                        //max1=row.revenue
-                        //shop1 = row.shopname
-                    }
-                    if (entry.Key == 4 && entry.Value != row.shopname && max4 < row.revenue)
-                    {
-                        //max1=row.revenue
-                        //shop1 = row.shopname
-                    }
-                    if (entry.Key == 5 && entry.Value != row.shopname && max5 < row.revenue)
-                    {
-                        //max1=row.revenue
-                        //shop1 = row.shopname
-                    }
-                    
-
+                    shopPositions.Add(i + 1, shopNames.ElementAt(i));
                 }
             }
+            else//Rollercoaster
+            {
 
+                //here run the simulation on random(3, 5) times and call this function again in order to get to the possitive if statement
+                //make assoc. array position->shopName(same as the one mentioned above, but since the function does not get into the if 
+                //statement we can reuse the reserved memory for this else statement)
+                //for(i = 0; i < random(3, 5); i++;)
+                //{
+                //runSimulation()
+                //stopSimulation()
+                //Rhe first argument can be either 0 or i. That has to be tested.
+                //ReorderDictionaty(i, 5) reorder the shops for the next simulation and runit again as many times as the for loop demands.
+                //}
+                //this.OptimizeShopPlacement();
+                //use the ReorderMethod 5 times
+
+            }
 
             return shopPositions;
-        }
 
-         
-    }
+        }                              // We can use just 0, 5, because we have only 5 positions.
+        public void ReorderDictionary(int oldIndex, int newIndex)   //we  run 5 simulations and every other simulation we execute the reorder dictionary method which will reorder the positions
+        {
+            
+            var oldDictionary = new Dictionary<int, string>(); 
+            oldDictionary.Add(1, "shop1");
+            oldDictionary.Add(2, "shop2");
+            oldDictionary.Add(3, "shop3");
+            oldDictionary.Add(4, "shop4");
+            oldDictionary.Add(5, "shop5");//fill the dictioanaryy with values fro the gui
+
+            var movedItem = oldDictionary[oldIndex];//remove the first value of the dictioanarry and place it ina var for later use
+            oldDictionary.Remove(oldIndex);
+
+            var newDictionary = new Dictionary<int, string>();//Initialize the new dictionary
+
+            var offset = 0;
+            for (var i = 0; i < oldDictionary.Count; i++)//loop through all elements of the dictioanry
+            {
+                if (i + 1 == newIndex)//if statement to check if you are at the last element and if yes -> you add the stored var from above.
+                {
+                    newDictionary.Add(i, movedItem);
+                    offset = 1;
+                }
+                var oldEvent = oldDictionary[oldDictionary.Keys.ElementAt(i)];
+                newDictionary.Add(i + offset, oldEvent);//add the next event to the previous position
+            }
+            //not sure if that is going to break the appp, but it catches the exception array.IndexOutOFBounds
+            if (newIndex > oldDictionary.Count)
+            {
+                newDictionary.Add(oldDictionary.Count + 1, movedItem);
+            }
+        }
+        //from here
+        /*
+        array1; original array, takes positions and shops from ui
+        array2; iterative array, empty in the begnning
+
+        for (int i = 0; i < 3; i++) //i=0
+        {                
+            array2[1+i] = array1[5]; //ok
+
+            int counter=i;
+
+            for (int j = 1; j <= counter ; j++) //from the beginning of array 2 till the current
+            {
+                array2[j + 1] = array1[counter+1];
+                counter++;
+            }
+            for (int a = counter; a <=5; a++) //from current till the end of array 2
+            { 
+                array2[j + 1] = array1[counter];
+                counter++;
+            }
+
+            //runSim(); //use array2 for this
+        }
+        */
+
+    }  
 }
