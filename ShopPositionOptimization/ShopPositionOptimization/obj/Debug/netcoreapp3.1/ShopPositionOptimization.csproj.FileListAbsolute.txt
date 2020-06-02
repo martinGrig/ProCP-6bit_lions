@@ -1,0 +1,4 @@
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\ShopPositionOptimization\ShopPositionOptimization\obj\Debug\netcoreapp3.1\ShopPositionOptimization.csprojAssemblyReference.cache
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\ShopPositionOptimization\ShopPositionOptimization\obj\Debug\netcoreapp3.1\ShopPositionOptimization.AssemblyInfoInputs.cache
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\ShopPositionOptimization\ShopPositionOptimization\obj\Debug\netcoreapp3.1\ShopPositionOptimization.AssemblyInfo.cs
+C:\Users\alexa\Desktop\ProCP Scripts\procp-six-bit-lions\ShopPositionOptimization\ShopPositionOptimization\obj\Debug\netcoreapp3.1\ShopPositionOptimization.csproj.CoreCompileInputs.cache

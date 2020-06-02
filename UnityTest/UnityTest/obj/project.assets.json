@@ -8,19 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Marti\\.nuget\\packages\\": {}
+    "C:\\Users\\alexa\\.nuget\\packages\\": {},
+    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marti\\Desktop\\UnityTest\\UnityTest\\UnityTest.csproj",
+      "projectUniqueName": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\UnityTest\\UnityTest\\UnityTest.csproj",
       "projectName": "UnityTest",
-      "projectPath": "C:\\Users\\Marti\\Desktop\\UnityTest\\UnityTest\\UnityTest.csproj",
-      "packagesPath": "C:\\Users\\Marti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marti\\Desktop\\UnityTest\\UnityTest\\obj\\",
+      "projectPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\UnityTest\\UnityTest\\UnityTest.csproj",
+      "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\UnityTest\\UnityTest\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -58,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
