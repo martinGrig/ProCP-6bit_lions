@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wl3MNerfg89Pc7perFZintHdWYKvalZP4b4yRnv+U+6Ddha+AhX55TQiujpzml7ckO04XSEUewQDW0STgKFH0w==",
+  "dgSpecHash": "wJX4OtAfqpHAwoZJmQDT3w00jBaM/tIcxTiVX3Zn50TAUN1C1QOXAlNb6pQqMvKXJjoUqM/iH0k7kckA2E0RqA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marti\\Desktop\\procp-six-bit-lions\\ShopPositionOptimization\\ShopPositionOptimization\\ShopPositionOptimization.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\alexa\\Desktop\\ProCP Scripts\\procp-six-bit-lions\\ShopPositionOptimization\\ShopPositionOptimization\\ShopPositionOptimization.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
   "logs": []
 }
