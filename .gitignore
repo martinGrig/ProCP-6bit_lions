@@ -1,0 +1,5 @@
+*.v2
+*.suo
+*.json
+*.cache
+*.props
