@@ -35,20 +35,25 @@ namespace WeatherScript
             //all the numbers you see below are based on a BIG research ;D
             double amountOfPeople = customers.Count; //this is supposed to be the amount of people spawned in the mini mall
             TimeSpan busyTime = _duration;
+            double incomeMultiplier = 1;   //shopincome multiplier
 
             switch (_holiday)
             {
                 case Holidays.CHRISTMAS:
                     amountOfPeople += amountOfPeople * 0.50;
+                    incomeMultiplier = incomeMultiplier * 10;
                     break;
                 case Holidays.VALENTINESDAY:
                     amountOfPeople += amountOfPeople * 0.33;
+                    incomeMultiplier = incomeMultiplier * 3;
                     break;
                 case Holidays.EASTER:
                     amountOfPeople += amountOfPeople * 0.25;
+                    incomeMultiplier = incomeMultiplier * 3;
                     break;
                 case Holidays.BLACKFRIDAY:
-                    amountOfPeople += amountOfPeople * 0.90;
+                    amountOfPeople += amountOfPeople * 0.50;
+                    incomeMultiplier = incomeMultiplier * 7;
                     break;
                 default:
                     break;
@@ -63,20 +68,57 @@ namespace WeatherScript
             {
                 case Weather.SUNNY:
                     amountOfPeople -= amountOfPeople * 0.25;
+                    incomeMultiplier = incomeMultiplier / 1.20;
                     break;
                 case Weather.CLOUDY:
                     amountOfPeople += amountOfPeople * 0.17;
+                    incomeMultiplier = incomeMultiplier * 1.10;
                     break;
                 case Weather.RAINY:
                     amountOfPeople += amountOfPeople * 0.25;
+                    incomeMultiplier = incomeMultiplier * 1.20;
                     break;
                 case Weather.SNOWY:
                     amountOfPeople += amountOfPeople * 0.20;
+                    incomeMultiplier = incomeMultiplier * 1.20;
                     break;
                 default:
                     break;
             }
-           result = new Result(miniMall.GetShops(), miniMall.GetAllIncome(), _duration);
+            switch (_dayOfTheWeek)
+            {
+                case DaysOfTheWeek.MONDAY:
+                    amountOfPeople -= amountOfPeople * 0.20;
+                    incomeMultiplier = incomeMultiplier / 1.2;
+                    break;
+                case DaysOfTheWeek.TUESDAY:
+                    amountOfPeople -= amountOfPeople * 0.20;
+                    incomeMultiplier = incomeMultiplier / 1.2;
+                    break;
+                case DaysOfTheWeek.WEDNESDAY:
+                    amountOfPeople -= amountOfPeople * 0.20;
+                    incomeMultiplier = incomeMultiplier / 1.2;
+                    break;
+                case DaysOfTheWeek.THURSDAY:
+                    amountOfPeople += amountOfPeople * 0.20;
+                    incomeMultiplier = incomeMultiplier * 1.10;
+                    break;
+                case DaysOfTheWeek.FRIDAY:
+                    amountOfPeople += amountOfPeople * 0.30;
+                    incomeMultiplier = incomeMultiplier * 1.50;
+                    break;
+                case DaysOfTheWeek.SATURDAY:
+                    amountOfPeople += amountOfPeople * 0.50;
+                    incomeMultiplier = incomeMultiplier * 2;
+                    break;
+                case DaysOfTheWeek.SUNDAY:
+                    amountOfPeople += amountOfPeople * 0.50;
+                    incomeMultiplier = incomeMultiplier * 2;
+                    break;
+                default:
+                    break;
+            }
+            result = new Result(miniMall.GetShops(), miniMall.GetAllIncome(), _duration);
 
 
             return result;
